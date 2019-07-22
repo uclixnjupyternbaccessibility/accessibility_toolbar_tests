@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests/issues"
   },
-  "homepage": "https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests#readme"
+  "homepage": "https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  }
 }
