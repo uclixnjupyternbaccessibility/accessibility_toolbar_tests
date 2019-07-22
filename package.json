@@ -1,0 +1,24 @@
+{
+  "name": "accessibility_toolbar_tests",
+  "version": "1.0.0",
+  "description": "Automated selenium tests for Jupyter Notebook accessibility toolbar extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests.git"
+  },
+  "keywords": [
+    "tests",
+    "selenium",
+    "accessibility"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests/issues"
+  },
+  "homepage": "https://github.com/uclixnjupyternbaccessibility/accessibility_toolbar_tests#readme"
+}
