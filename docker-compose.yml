@@ -1,0 +1,40 @@
+# To execute this docker-compose yml file use `docker-compose -f <file_name> up`
+# Add the `-d` flag at the end for detached execution
+version: "3"
+services:
+  jupyter:
+    build:
+      context: .
+    image: jupyter/accessibility-toolbar:latest
+  notebook:
+    image: jupyter/accessibility-toolbar:latest
+    command: ['start-notebook.sh', '--ip', '0.0.0.0', "--NotebookApp.password='sha1:3b6fa6c1db2b:b1319a8b8c4b1da318dfec009f9c3bfaf25fff3d'", "--NotebookApp.allow_origin='*'"]
+    ports:
+      - 10000:8888
+  selenium-hub:
+    image: selenium/hub:3.141.59-selenium
+    container_name: selenium-hub
+    ports:
+      - 4444:4444
+  chrome:
+    image: selenium/node-chrome-debug:3.141.59-selenium
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - 5900:5900
+  firefox:
+    image: selenium/node-firefox-debug:3.141.59-selenium
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - 5901:5900

@@ -1,1 +1,6 @@
 node_modules/
+.idea/
+.ipynb_checkpoints/
+accessibility_toolbar_tests.iml
+styles/
+package-lock.json
