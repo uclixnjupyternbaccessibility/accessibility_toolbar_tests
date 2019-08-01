@@ -11,7 +11,7 @@ pool:
 
 steps:
 - script: |
-    npm install mocha
+    npm install
     docker-compose -f docker-compose.yml --project-directory . up -d
     docker ps
     npm run test
