@@ -10,10 +10,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Microsoft Azure Sponsorship 2(6e42ddaa-52b4-405c-b4a7-2c343927ec41)'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
+- script: docker-compose up
 - script: npm run test
