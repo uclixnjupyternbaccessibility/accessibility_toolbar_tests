@@ -37,11 +37,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
        it('Create new notebook', async () => {
            await driver.get('http://host.docker.internal:10000/');
            await driver.sleep(2000);
-           await driver.findElement(By.linkText("work")).click();
-           await driver.findElement(By.id("new-dropdown-button")).click();
-           await driver.findElement(By.linkText("Python 3")).click();
-
-           await utils.switch_to_latest_tab();
+           await utils.open_new_notebook(By);
 
            await driver.sleep(5000);
            await driver.findElement(By.id("fs")).click();

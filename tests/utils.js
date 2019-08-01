@@ -15,4 +15,12 @@ async function login_to_jupyter(By, webdriver) {
     await psw.sendKeys(webdriver.Key.ENTER);
 }
 
-module.exports = {switch_to_latest_tab ,login_to_jupyter};
+async function open_new_notebook(By) {
+    await driver.findElement(By.linkText("work")).click();
+    await driver.findElement(By.id("new-dropdown-button")).click();
+    await driver.findElement(By.linkText("Python 3")).click();
+
+    await switch_to_latest_tab();
+}
+
+module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook};
