@@ -5,15 +5,6 @@ let webdriver = require('selenium-webdriver'),
     until = webdriver.until;
 
 let driver = global.driver;
-// let driver_chr = new webdriver.Builder().forBrowser('chrome')
-//     .usingServer('http://localhost:4444/wd/hub')
-//     .build();
-// let driver_fx = new webdriver.Builder().forBrowser('firefox')
-//     .usingServer('http://localhost:4444/wd/hub')
-//     .build();
-
-// run_tests(driver_chr);
-// run_tests(driver_fx);
 
 (async function run_tests(driver) {
 
@@ -42,6 +33,15 @@ let driver = global.driver;
            await driver.sleep(1000);
            await driver.findElement(By.linkText("Files")).click();
            await driver.sleep(1000);
+
+       });
+
+       it('Create new notebook', async () => {
+           await driver.get('http://host.docker.internal:10000/');
+           await driver.sleep(2000);
+           await driver.findElement(By.linkText("work")).click();
+           await driver.findElement(By.id("new-dropdown-button")).click();
+           await driver.findElement(By.linkText("Python 3")).click();
 
        });
        after(async () => driver.quit());

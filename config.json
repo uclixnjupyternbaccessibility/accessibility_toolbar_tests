@@ -3,7 +3,7 @@
     {
       "file": "./tests/enable_extension_test.js",
       "timeout": 20000
-    }
+  }
   ],
   "browsers": [
     {
