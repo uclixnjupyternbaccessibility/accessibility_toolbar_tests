@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- docker-tests
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    npm install
+    docker-compose -f docker-compose.yml --project-directory . up -d
+    docker ps
+    npm run test
+    docker-compose -f docker-compose.yml --project-directory . down
+  displayName: 'Run Tests'
+  continueOnError: false
