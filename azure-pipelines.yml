@@ -10,6 +10,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: npm install mocha
-- script: docker-compose up -d
-- script: npm run test
+- script: |
+    npm install mocha
+    docker-compose up -d
+    npm run test
+  displayName: 'Run Tests'
+  continueOnError: false
