@@ -4,7 +4,8 @@ FROM jupyter/base-notebook:latest
 USER root
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install --assume-yes git
+    apt-get install --assume-yes git && \
+    apt-get install unzip
 
 RUN pip install jupyter_contrib_nbextensions && \
     jupyter contrib nbextension install --user && \
@@ -16,8 +17,9 @@ RUN pip install jupyter_contrib_nbextensions && \
     rm -rf /tmp/jupyter_contrib_nbextensions &&\
     jupyter nbextension enable accessibility_toolbar/main --user &&\
     cd work &&\
-    wget https://notebooks.azure.com/Microsoft/projects/samples/html/Azure%20Notebooks%20-%20Welcome.ipynb &&\
-    wget https://notebooks.azure.com/Microsoft/projects/samples/html/Discover%20Sentiments%20in%20Tweets.ipynb &&\
+    wget https://github.com/CambridgeEngineering/PartIA-Computing-Michaelmas/archive/master.zip &&\
+    unzip master.zip &&\
+    rm master.zip &&\
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
