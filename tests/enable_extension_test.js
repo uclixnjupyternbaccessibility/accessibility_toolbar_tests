@@ -20,7 +20,7 @@ let driver = global.driver;
     describe('EnableExtensionTest', () => {
        it('verify accessibility toolbar extension exists', async () => {
            await driver.get('http://host.docker.internal:10000/');
-           await driver.sleep(5000);
+           await driver.sleep(10000);
            let psw = await driver.findElement(By.name('password'));
 
            await psw.sendKeys('12345678');
