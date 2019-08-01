@@ -4,7 +4,10 @@ let webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 
-let driver = global.driver;
+let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser('chrome')
+        .usingServer('http://localhost:4444/wd/hub')
+        .build();
+
 
 (async function run_tests(driver) {
 
