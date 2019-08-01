@@ -19,7 +19,7 @@ let driver = global.driver;
 
     describe('EnableExtensionTest', () => {
        it('verify accessibility toolbar extension exists', async () => {
-           await driver.get('http://localhost:10000/');
+           await driver.get('http://127.0.0.1:10000/');
            await driver.sleep(10000);
            let psw = await driver.findElement(By.name('password'));
 
