@@ -4,7 +4,7 @@
   "description": "Automated selenium tests for Jupyter Notebook accessibility toolbar extension",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha runner.js --timeout 20000"
+    "test": "node_modules/.bin/mocha runner.js"
   },
   "repository": {
     "type": "git",

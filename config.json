@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "file": "./tests/tests.js",
+      "file": "./tests/enable_extension_test.js",
       "timeout": 20000
     }
   ],
