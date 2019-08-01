@@ -10,5 +10,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: docker-compose up
+- script: docker-compose up -d
 - script: npm run test
