@@ -45,9 +45,21 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
            await driver.findElement(By.id("new-dropdown-button")).click();
            await driver.findElement(By.linkText("Python 3")).click();
 
+           await switch_to_latest_tab();
+
+           await driver.sleep(3000);
+           await driver.findElement(By.id("fs")).click();
+
        });
        after(async () => driver.quit());
     });
 
 
 })(driver);
+
+async function switch_to_latest_tab() {
+    var tab_handles = await driver.getAllWindowHandles();
+    let number_of_tabs = tab_handles.length;
+    let new_tab_index = number_of_tabs-1;
+    await driver.switchTo().window(tab_handles[new_tab_index]);
+}
