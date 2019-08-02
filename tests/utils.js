@@ -23,4 +23,11 @@ async function open_new_notebook(By) {
     await switch_to_latest_tab();
 }
 
-module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook};
+async function open_existed_notebook(By){
+    await driver.findElement(By.linkText("work")).click();
+    await driver.findElement(By.linkText("PartIA-Computing-Michaelmas-master")).click();
+    await driver.findElement(By.linkText("00 Part IA Michaelmas Term computing.ipynb")).click();
+    await switch_to_latest_tab();
+}
+
+module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook,open_existed_notebook};

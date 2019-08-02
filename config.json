@@ -1,17 +1,13 @@
 {
   "tests": [
     {
-      "file": "./tests/enable_extension_test.js",
+      "file": "./tests/font_control_test.js",
       "timeout": 20000
   }
   ],
   "browsers": [
     {
       "browserName": "chrome",
-      "browserVersion": "3.141.59"
-    },
-    {
-      "browserName": "firefox",
       "browserVersion": "3.141.59"
     }
   ]
