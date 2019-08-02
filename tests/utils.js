@@ -28,14 +28,11 @@ async function open_new_notebook(By, first) {
     await switch_to_latest_tab();
 }
 
-async function open_notebook(By, until, first, name) {
-    if (first) {
-        driver.wait(until.elementLocated(By.linkText("work"))).click();
-        driver.wait(until.elementLocated(By.linkText("PartIA-Computing-Michaelmas-master"))).click();
-    }
-    await driver.wait(until.elementLocated(By.linkText(name))).click();
-    await driver.sleep(2000);
+async function open_existed_notebook(By){
+    await driver.findElement(By.linkText("work")).click();
+    await driver.findElement(By.linkText("PartIA-Computing-Michaelmas-master")).click();
+    await driver.findElement(By.linkText("00 Part IA Michaelmas Term computing.ipynb")).click();
     await switch_to_latest_tab();
 }
 
-module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook, open_notebook};
+module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook,open_existed_notebook};
