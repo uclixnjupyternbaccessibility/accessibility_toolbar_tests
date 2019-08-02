@@ -43,31 +43,31 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(2000);
        })
 
-    //    it('Change font name', async() =>{
-    //         var font_name= driver.wait(until.elementLocated(By.id("font_name")));
-    //         var font_name_list=[
-    //             "Monospace",
-    //             "Arial",
-    //             "Arial Black",
-    //             "Comic Sans MS",
-    //             "Georgia",
-    //             "Impact",
-    //             "Lucida Sans Unicode",
-    //             "Palatino Linotype",
-    //             "Tahoma",
-    //             "Times New Roman",
-    //             "Verdana",
-    //             "Default"
-    //           ];
-    //         await driver.sleep(1000);
-    //         for(var i=0;i<font_name_list.length;i++){
-    //             await font_name.click();
-    //             await font_name.sendKeys(font_name_list[i]);
-    //             await driver.sleep(1000)
-    //             await font_name.sendKeys(webdriver.Key.ENTER);
-    //             await driver.sleep(1000);
-    //         }
-    //    });
+       it('Change font name', async() =>{
+            var font_name= driver.wait(until.elementLocated(By.id("font_name")));
+            var font_name_list=[
+                "Monospace",
+                "Arial",
+                "Arial Black",
+                "Comic Sans MS",
+                "Georgia",
+                "Impact",
+                "Lucida Sans Unicode",
+                "Palatino Linotype",
+                "Tahoma",
+                "Times New Roman",
+                "Verdana",
+                "Default"
+              ];
+            await driver.sleep(1000);
+            for(var i=0;i<font_name_list.length;i++){
+                await font_name.click();
+                await font_name.sendKeys(font_name_list[i]);
+                await driver.sleep(1000)
+                await font_name.sendKeys(webdriver.Key.ENTER);
+                await driver.sleep(1000);
+            }
+       });
 
        it('Change font size', async() =>{
         var font_size= driver.wait(until.elementLocated(By.id("font_size")));
