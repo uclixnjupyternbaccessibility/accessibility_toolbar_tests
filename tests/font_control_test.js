@@ -15,16 +15,11 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
     describe('Font control testing', () => {
        it('verify accessibility toolbar extension exists', async () => {
            await utils.login_to_jupyter(By, webdriver);
-
            await driver.sleep(2000);
-
            await driver.findElement(By.linkText("Nbextensions")).click();
-
            await driver.sleep(1000);
-
            let text = await driver.findElement(webdriver.By.linkText('Accessibility Toolbar')).getText();
            expect(text).to.equal("Accessibility Toolbar");
-
            await driver.findElement(By.xpath("//*[@id=\"tabs\"]/li[4]/a")).click();
            await driver.sleep(1000);
            await driver.findElement(By.xpath("//*[@id=\"nbextensions-configurator-container\"]/div[3]/div[1]/div[5]/button[1]")).click();
@@ -38,58 +33,66 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.get('http://host.docker.internal:10000/');
             await driver.sleep(2000);
             await utils.open_existed_notebook(By);
-            await driver.sleep(2000);
        });
 
        it('Open font style dropdown',async()=>{
+            var fs=driver.wait(until.elementLocated(By.id("fs")));
+            await fs.click();
+            var toogle= driver.wait(until.elementLocated(By.xpath("//*[@id='switch']/div/div/label[2]")));
+            await toogle.click();
             await driver.sleep(2000);
-            await driver.findElement(By.id("fs")).click();
-            await driver.sleep(2000);
-            await driver.findElement(By.xpath("//*[@id='switch']/div/div/label[2]")).click()
-            await driver.sleep(1000);
        })
 
-       it('Change font name', async() =>{
-            let font_name= driver.findElement(By.id("font_name"));
-            var font_name_list=[
-                "Monospace",
-                "Arial",
-                "Arial Black",
-                "Comic Sans MS",
-                "Georgia",
-                "Impact",
-                "Lucida Sans Unicode",
-                "Palatino Linotype",
-                "Tahoma",
-                "Times New Roman",
-                "Verdana"
-              ];
-            await driver.sleep(1000);
-            for(var i=0;i<font_name_list.length;i++){
-                await font_name.click();
-                await font_name.sendKeys(font_name_list[i]);
-                await driver.sleep(1000)
-                await font_name.sendKeys(webdriver.Key.ENTER);
-                await driver.sleep(1000);
-            }
-            await driver.sleep(5000);
-       })
+    //    it('Change font name', async() =>{
+    //         var font_name= driver.wait(until.elementLocated(By.id("font_name")));
+    //         var font_name_list=[
+    //             "Monospace",
+    //             "Arial",
+    //             "Arial Black",
+    //             "Comic Sans MS",
+    //             "Georgia",
+    //             "Impact",
+    //             "Lucida Sans Unicode",
+    //             "Palatino Linotype",
+    //             "Tahoma",
+    //             "Times New Roman",
+    //             "Verdana",
+    //             "Default"
+    //           ];
+    //         await driver.sleep(1000);
+    //         for(var i=0;i<font_name_list.length;i++){
+    //             await font_name.click();
+    //             await font_name.sendKeys(font_name_list[i]);
+    //             await driver.sleep(1000)
+    //             await font_name.sendKeys(webdriver.Key.ENTER);
+    //             await driver.sleep(1000);
+    //         }
+    //    });
 
-//        it('Change font name', async() =>{
-//         let font_name= driver.findElement(By.id("font_name"));
-//         var font_name_list=[
-//           ];
-//         await driver.sleep(1000);
-//         for(var i=0;i<font_name_list.length;i++){
-//             font_name.click();
-//             await font_name.sendKeys(font_name_list[i]);
-//             await driver.sleep(1000)
-//             await font_name.sendKeys(webdriver.Key.ENTER);
-//             await driver.sleep(2000);
-//         }
-//         await driver.sleep(1000);
-//    })
-
+       it('Change font size', async() =>{
+        var font_size= driver.wait(until.elementLocated(By.id("font_size")));
+        var font_size_list=[
+            "10",
+            "12",
+            "14",
+            "20",
+            "28",
+            "32",
+            "48",
+            "56",
+            "64",
+            "72"
+          ];
+        await driver.sleep(1000);
+        for(var i=0;i<font_size_list.length;i++){
+            await font_size.click();
+            await font_size.sendKeys(font_size_list[i]);
+            await driver.sleep(1000)
+            await font_size.sendKeys(webdriver.Key.ENTER);
+            await driver.sleep(2000);
+        }
+        await driver.sleep(3000);
+   });
 
        after(async () => driver.quit());
     });

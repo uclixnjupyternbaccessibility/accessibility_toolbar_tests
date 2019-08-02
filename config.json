@@ -2,7 +2,7 @@
   "tests": [
     {
       "file": "./tests/font_control_test.js",
-      "timeout": 20000
+      "timeout": 200000
   }
   ],
   "browsers": [
