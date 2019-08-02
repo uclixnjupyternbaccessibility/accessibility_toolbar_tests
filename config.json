@@ -2,8 +2,12 @@
   "tests": [
     {
       "file": "./tests/enable_extension_test.js",
-      "timeout": 20000
-  }
+      "timeout": 200000
+    },
+    {
+      "file": "./tests/predefined_fonts_test.js",
+      "timeout": 200000
+    }
   ],
   "browsers": [
     {
