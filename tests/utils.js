@@ -29,9 +29,16 @@ async function open_new_notebook(By, first) {
 }
 
 async function open_existed_notebook(By){
-    await driver.findElement(By.linkText("work")).click();
-    await driver.findElement(By.linkText("PartIA-Computing-Michaelmas-master")).click();
-    await driver.findElement(By.linkText("00 Part IA Michaelmas Term computing.ipynb")).click();
+    var work = driver.wait(until.elementLocated(By.linkText("work")));
+    await work.click();
+    // await driver.findElement(By.linkText("work")).click();
+    var folder = driver.wait(until.elementLocated(By.linkText("PartIA-Computing-Michaelmas-master")));
+    await folder.click();
+    // await driver.findElement(By.linkText("PartIA-Computing-Michaelmas-master")).click();
+    // await driver.findElement(By.linkText("00 Part IA Michaelmas Term computing.ipynb")).click();
+    var notebook = driver.wait(until.elementLocated(By.linkText("00 Part IA Michaelmas Term computing.ipynb")));
+    await notebook.click();
+    await driver.sleep(1000);
     await switch_to_latest_tab();
 }
 

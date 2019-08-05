@@ -4,3 +4,4 @@ node_modules/
 accessibility_toolbar_tests.iml
 styles/
 package-lock.json
+.DS_Store
