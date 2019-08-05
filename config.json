@@ -1,10 +1,11 @@
 {
   "tests": [
     {
-      "file": "./tests/predefined_fonts_test.js",
+      "file": "./tests/color_manager_test.js",
       "timeout": 20000
     }
   ],
+  
   "browsers": [
     {
       "browserName": "chrome",
