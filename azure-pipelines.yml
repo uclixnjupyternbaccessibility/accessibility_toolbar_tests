@@ -11,9 +11,10 @@ pool:
 
 steps:
 - script: |
-    npm install
+    
     docker-compose -f docker-compose.yml --project-directory . up -d
     docker ps
+    npm install
     npm run test
     docker-compose -f docker-compose.yml --project-directory . down
   displayName: 'Run Tests'
