@@ -34,7 +34,11 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         });
 
         it('create new predefined style test', async () => {
-            await driver.wait(until.elementLocated(By.id("predefined_styles"))).click();
+            await driver.sleep(1000);
+            var ps = driver.wait(until.elementLocated(By.xpath("//*[@id=\"predefined_styles\"]")));
+            await driver.sleep(1000);
+            await ps.click();
+
             var new_style_button = await driver.wait(until.elementLocated(By.id("new_style_button")));
             await driver.sleep(1000);
             await new_style_button.findElement(By.xpath("./..")).click();
@@ -78,7 +82,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             var deleted = await driver.findElement(By.linkText('predefined_style_1')).catch(function(error) {});
             expect(deleted).to.equal(undefined);
         });
-
 
     });
     after(async () => driver.quit());

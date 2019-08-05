@@ -8,10 +8,6 @@
   "browsers": [
 
     {
-      "browserName": "chrome",
-      "browserVersion": "3.141.59"
-    },
-    {
       "browserName": "firefox",
       "browserVersion": "3.141.59"
     }
