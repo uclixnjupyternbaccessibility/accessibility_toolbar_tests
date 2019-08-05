@@ -7,6 +7,10 @@
     {
       "file": "./tests/predefined_fonts_test.js",
       "timeout": 40000
+    },
+    {
+      "file": "./tests/color_manager_test.js",
+      "timeout": 40000
     }
   ],
   "browsers": [
