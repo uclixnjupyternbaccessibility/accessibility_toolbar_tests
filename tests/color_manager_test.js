@@ -33,7 +33,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         it('Create new notebook', async () => {
              await driver.get('http://host.docker.internal:10000/');
              await driver.sleep(2000);
-             await utils.open_existed_notebook(By);
+             await utils.open_existing_notebook(By);
         });
  
         it('Open font style dropdown',async()=>{
@@ -96,7 +96,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.wait(until.elementLocated(By.id("f_name"))).click().catch(function(err) {
                 console.log('cell background color is not colse for that font name  is not clickable!!!')
             });
-            // await driver.wait (driver.findElement(By.className("sp-palette-container")).isDisplayed());
+            
         });
 
 
