@@ -38,3 +38,6 @@ services:
       - HUB_PORT=4444
     ports:
       - 5901:5900
+  sut:
+    build: .
+    command: npm run test

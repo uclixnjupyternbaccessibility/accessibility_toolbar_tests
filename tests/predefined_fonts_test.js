@@ -17,14 +17,11 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await utils.open_existing_notebook(By);
             var font_style = driver.wait(until.elementLocated(By.id("fs")));
             await font_style.click();
-            await driver.sleep(1000);
             var predefined = await driver.wait(until.elementLocated(By.id("predefined_styles")));
             await predefined.getAttribute('class').then(function(classes) {
                 expect(classes).to.include('disabled');
             });
-            await driver.sleep(1000);
             await driver.wait(until.elementLocated(By.id("switch"))).click();
-            await driver.sleep(1000);
 
             var predefined = driver.findElement(By.id("predefined_styles"));
 
@@ -34,8 +31,28 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         });
 
         it('create new predefined style test', async () => {
-            await driver.sleep(1000);
+            // change style
+            var font_size = driver.wait(until.elementLocated(By.id("font_size")));
+            await font_size.click();
+            await font_size.sendKeys('32');
+
+            var font_name = driver.wait(until.elementLocated(By.id("font_name")));
+            await font_name.click();
+            await font_name.sendKeys('Times New Roman');
+
+            var increase_lh = driver.wait(until.elementLocated(By.id('increase_line_height')));
+            await increase_lh.click();
+            await increase_lh.click();
+            await increase_lh.click();
+
+            var increase_ls = driver.wait(until.elementLocated(By.id('increase_letter_space')));
+            await increase_ls.click();
+            await increase_ls.click();
+            await increase_ls.click();
+
+            driver.executeScript("$('#predefined_styles').attr('aria-expanded', 'true')");
             var ps = driver.wait(until.elementLocated(By.xpath("//*[@id=\"predefined_styles\"]")));
+
             await driver.sleep(1000);
             await ps.click();
 
