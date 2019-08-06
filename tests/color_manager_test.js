@@ -43,7 +43,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         })
 
         it('Turn the switch on',async()=>{
-            var toogle= driver.wait(until.elementLocated(By.xpath("//*[@id='switch']/div/div/label[2]")));
+            var toogle= driver.wait(until.elementLocated(By.id("switch")));
             await toogle.click();
             await driver.sleep(2000);
        })
@@ -66,7 +66,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await pageBackgroundColor.getAttribute('class').then(function(classes) {
                 expect(classes).to.not.include('disabled');
             }).catch(function(err) {
-                console.log('error')
+                console.log(err)
             });
         });
 
@@ -88,7 +88,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             var new_cell_color = await driver.wait(until.elementLocated(By.css(".input_area div")));
                 await new_cell_color.getCssValue("background-color").then(function(value) {
                     expect(value).to.equal('rgba(255, 255, 0, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
         });
         it('close  cell background color picker test', async () => {
@@ -108,7 +108,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             var new_page_color  = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await new_page_color.getCssValue("background-color").then(function(value) {
                     expect(value).to.equal('rgba(207, 226, 243, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
         });
         it('close  page background color picker test', async () => {
@@ -126,7 +126,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             var new_font_color  = await driver.wait(until.elementLocated(By.css(".rendered_html p")));
                 await new_font_color.getCssValue("color").then(function(value) {
                     expect(value).to.equal('rgba(255, 0, 0, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
         });
         it('close text font color picker test', async () => {
@@ -139,27 +139,27 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
         it('when font styles switch off, color values reset to default ', async () => {
             // turn switch off
-            var toogle= driver.wait(until.elementLocated(By.xpath("//*[@id='switch']/div/div/label[2]")));
+            var toogle= driver.wait(until.elementLocated(By.id("switch")));
              await toogle.click();
              await driver.sleep(2000);
 
              var def_cell_color = await driver.wait(until.elementLocated(By.css(".input_area div")));
                 await def_cell_color.getCssValue("background-color").then(function(value) {
                     expect(value).to.equal('rgba(247, 247, 247, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
 
 
             var def_page_color  = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await def_page_color.getCssValue("background-color").then(function(value) {
                     expect(value).to.equal('rgba(255, 255, 255, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
 
             var def_font_color  = await driver.wait(until.elementLocated(By.css(".rendered_html p")));
                 await def_font_color.getCssValue("color").then(function(value) {
                     expect(value).to.equal('rgba(0, 0, 0, 1)');}).catch(function(err) {
-                        console.log('error')
+                        console.log(err)
                     });
 
         });

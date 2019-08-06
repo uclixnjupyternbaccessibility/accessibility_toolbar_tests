@@ -2,14 +2,18 @@
   "tests": [
     {
       "file": "./tests/font_spacing_test.js",
-      "timeout": 20000
-    },
-    {
-      "file": "./tests/predefined_fonts_test.js",
       "timeout": 40000
     },
     {
       "file": "./tests/color_manager_test.js",
+      "timeout": 40000
+    },
+    {
+      "file": "./tests/themes_test.js",
+      "timeout": 40000
+    },
+    {
+      "file": "./tests/predefined_fonts_test.js",
       "timeout": 40000
     }
   ],
