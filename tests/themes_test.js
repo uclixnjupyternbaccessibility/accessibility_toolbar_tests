@@ -28,24 +28,26 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 }).catch(function(error){
                     console.log(error);
                 });
-
+                
                 var body = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await body.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(45, 50, 60, 1)');
+                    var colorValue = ['rgb(45, 50, 60)','rgba(45, 50, 60, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
 
                 var textcolor = await driver.wait(until.elementLocated(By.css(".navbar-default .navbar-nav > li > a")));
                 await textcolor.getCssValue("color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 255, 255, 1)');
+                    var colorValue  = ['rgb(255, 255, 255)','rgba(255, 255, 255, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
 
-                var highToggle = await driver.wait(until.elementLocated(By.xpath("//div[@class='btn-group open']//li[2]/div")));
+                var highToggle = await driver.wait(until.elementLocated(By.xpath("//div[@class='btn-group open']//li[2]/div/input")));
                 await highToggle.getAttribute('disabled').then(function(value) {
-                     expect(value).to.not.equal(null);
+                     expect(value).to.not.equal('false');
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -60,13 +62,15 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 });
 
                 await body.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 255, 255, 1)');
+                    var colorValue  = ['rgb(255, 255, 255)', 'rgba(255, 255, 255, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
 
                 await textcolor.getCssValue("color").then(function(value) {
-                    expect(value).to.equal('rgba(119, 119, 119, 1)');
+                    var colorValue  = ['rgb(119, 119, 119)','rgba(119, 119, 119, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -91,14 +95,16 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
                 var body = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await body.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(0, 0, 0, 1)');
+                    var colorValue = ['rgb(0, 0, 0)','rgba(0, 0, 0, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
 
                 var textcolor = await driver.wait(until.elementLocated(By.css(".navbar-default .navbar-nav > li > a")));
                 await textcolor.getCssValue("color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 255, 255, 1)');
+                    var colorValue  = ['rgb(255, 255, 255)', 'rgba(255, 255, 255, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -106,7 +112,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 await driver.sleep(1000);
                 var darkToggle = await driver.wait(until.elementLocated(By.xpath("//*[@class='text-center switch']/div/div/label[2]")));
                 await darkToggle.getAttribute('disabled').then(function(value) {
-                    expect(value).to.not.equal(null);
+                    expect(value).to.not.equal('false');
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -121,13 +127,15 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 });
     
                 await body.getCssValue("background-color").then(function(value) {
-                  expect(value).to.equal('rgba(255, 255, 255, 1)');
+                    var colorValue  = ['rgb(255, 255, 255)', 'rgba(255, 255, 255, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                   console.log(error);
                 });
     
                 await textcolor.getCssValue("color").then(function(value) {
-                  expect(value).to.equal('rgba(119, 119, 119, 1)');
+                   var colorValue = ['rgb(119, 119, 119)','rgba(119, 119, 119, 1)']
+                   expect(colorValue).to.be.an('array').that.includes(value);
                 }).catch(function(error){
                   console.log(error);
                 });
