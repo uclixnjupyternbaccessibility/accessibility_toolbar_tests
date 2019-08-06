@@ -21,7 +21,7 @@ function dumpCSSText(element){
 
         it('check you can increase line height', async () => {
             await utils.login_to_jupyter(By, webdriver);
-            await utils.open_existed_notebook(By);
+            await utils.open_existing_notebook(By);
             var font_style = driver.wait(until.elementLocated(By.id("fs")))
             await font_style.click();
             var fs_switch = driver.wait(until.elementLocated(By.id('switch')))

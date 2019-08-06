@@ -27,19 +27,19 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(1000);
             await driver.findElement(By.linkText("Files")).click();
             await driver.sleep(1000);
- 
+
         });
- 
+
         it('Create new notebook', async () => {
              await driver.get('http://host.docker.internal:10000/');
              await driver.sleep(2000);
-             await utils.open_existed_notebook(By);
+             await utils.open_existing_notebook(By);
         });
- 
+
         it('Open font style dropdown',async()=>{
              var fs=driver.wait(until.elementLocated(By.id("fs")));
              await fs.click();
-            
+
         })
 
         it('Turn the switch on',async()=>{
@@ -52,7 +52,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
         //=======================
         it('when font styles switch on,  cell background color is not disabled', async () => {
-           
+
             var cellBackgroundColor = driver.wait(until.elementLocated(By.id("color-picker-background")));
             await cellBackgroundColor.getAttribute('class').then(function(classes) {
                 expect(classes).to.not.include('disabled');
@@ -149,19 +149,19 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                         console.log('error')
                     });
 
-                    
+
             var def_page_color  = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await def_page_color.getCssValue("background-color").then(function(value) {
                     expect(value).to.equal('rgba(255, 255, 255, 1)');}).catch(function(err) {
                         console.log('error')
                     });
-    
+
             var def_font_color  = await driver.wait(until.elementLocated(By.css(".rendered_html p")));
                 await def_font_color.getCssValue("color").then(function(value) {
                     expect(value).to.equal('rgba(0, 0, 0, 1)');}).catch(function(err) {
                         console.log('error')
                     });
-           
+
         });
         //=================
 
