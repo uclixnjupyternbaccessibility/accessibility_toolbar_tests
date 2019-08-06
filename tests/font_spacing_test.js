@@ -9,19 +9,19 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
     .build();
 
 function dumpCSSText(element){
-  var s = {};
-  var o = getComputedStyle(element);
-  for(var i = 0; i < o.length; i++){
-    s[o[i]+""] = o.getPropertyValue(o[i])
-  }
-  return s;
+    var s = {};
+    var o = getComputedStyle(element);
+    for(var i = 0; i < o.length; i++){
+        s[o[i]+""] = o.getPropertyValue(o[i])
+    }
+    return s;
 }
 (async function run_tests(driver) {
     describe('Font Spacing tests', () => {
 
         it('check you can increase line height', async () => {
             await utils.login_to_jupyter(By, webdriver);
-            await utils.open_existed_notebook(By);
+            await utils.open_existing_notebook(By);
             var font_style = driver.wait(until.elementLocated(By.id("fs")))
             await font_style.click();
             var fs_switch = driver.wait(until.elementLocated(By.id('switch')))
