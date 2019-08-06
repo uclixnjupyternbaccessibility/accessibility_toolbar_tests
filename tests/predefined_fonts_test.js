@@ -73,10 +73,17 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
             await driver.wait(until.elementLocated(By.id("fs"))).click();
             await driver.wait(until.elementLocated(By.id("predefined_styles"))).click();
-            let styles = driver.wait(until.elementLocated(By.linkText('predefined_style_1')));
+            let styles = driver.wait(until.elementLocated(By.linkText('predefined_style_1'))).click();
             await styles.getAttribute('class').then(function(classes) {
                 expect(classes).to.include('dropdown-item-checked');
             });
+            var background = driver.wait(until.elementLocated(By.css(".input_area")));
+            await background.getCssValue("font-family").then(function(value){
+                expect(value).to.equal('Times New Roman')
+            }).catch(function(err){
+                console.log(err);
+            })
+
         });
 
         it('delete an existing predefined style test', async () => {
