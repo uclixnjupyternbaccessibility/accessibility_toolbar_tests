@@ -96,7 +96,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.wait(until.elementLocated(By.id("f_name"))).click().catch(function(err) {
                 console.log('cell background color is not colse for that font name  is not clickable!!!')
             });
-            // await driver.wait (driver.findElement(By.className("sp-palette-container")).isDisplayed());
+            
         });
 
 
