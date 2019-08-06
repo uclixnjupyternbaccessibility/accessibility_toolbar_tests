@@ -45,7 +45,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
                 var highToggle = await driver.wait(until.elementLocated(By.xpath("//div[@class='btn-group open']//li[2]/div")));
                 await highToggle.getAttribute('disabled').then(function(value) {
-                     expect(value).to.not.equal('null');
+                     expect(value).to.not.equal(null);
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -72,7 +72,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 });
 
                 await highToggle.getAttribute('disabled').then(function(value) {
-                     expect(value).to.equal('null');
+                     expect(value).to.equal(null);
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -106,7 +106,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 await driver.sleep(1000);
                 var darkToggle = await driver.wait(until.elementLocated(By.xpath("//*[@class='text-center switch']/div/div/label[2]")));
                 await darkToggle.getAttribute('disabled').then(function(value) {
-                    expect(value).to.not.equal('null');
+                    expect(value).to.not.equal(null);
                 }).catch(function(error){
                     console.log(error);
                 });
@@ -133,7 +133,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 });
     
                 await highToggle.getAttribute('disabled').then(function(value) {
-                   expect(value).to.equal('null');
+                   expect(value).to.equal(null);
                 }).catch(function(error){
                   console.log(error);
                 });
