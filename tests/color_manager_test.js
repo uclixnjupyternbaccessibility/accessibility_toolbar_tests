@@ -87,7 +87,8 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
             var new_cell_color = await driver.wait(until.elementLocated(By.css(".input_area div")));
                 await new_cell_color.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 255, 0, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(255, 255, 0)', 'rgba(255, 255, 0, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
         });
@@ -107,7 +108,8 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
             var new_page_color  = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await new_page_color.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(207, 226, 243, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(207, 226, 243)', 'rgba(207, 226, 243, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
         });
@@ -125,7 +127,8 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
             var new_font_color  = await driver.wait(until.elementLocated(By.css(".rendered_html p")));
                 await new_font_color.getCssValue("color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 0, 0, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(255, 0, 0)', 'rgba(255, 0, 0, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
         });
@@ -145,20 +148,23 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
              var def_cell_color = await driver.wait(until.elementLocated(By.css(".input_area div")));
                 await def_cell_color.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(247, 247, 247, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(247, 247, 247)', 'rgba(247, 247, 247, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
 
 
             var def_page_color  = await driver.wait(until.elementLocated(By.css("#notebook-container")));
                 await def_page_color.getCssValue("background-color").then(function(value) {
-                    expect(value).to.equal('rgba(255, 255, 255, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(255, 255, 255)', 'rgba(255, 255, 255, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
 
             var def_font_color  = await driver.wait(until.elementLocated(By.css(".rendered_html p")));
                 await def_font_color.getCssValue("color").then(function(value) {
-                    expect(value).to.equal('rgba(0, 0, 0, 1)');}).catch(function(err) {
+                    var colorValue  = ['rgb(0, 0, 0)', 'rgba(0, 0, 0, 1)'];
+                    expect(colorValue).to.be.an('array').that.includes(value);}).catch(function(err) {
                         console.log('error')
                     });
 
