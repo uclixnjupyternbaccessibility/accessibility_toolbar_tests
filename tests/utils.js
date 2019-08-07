@@ -35,4 +35,13 @@ async function open_existing_notebook(By){
     await switch_to_latest_tab();
 }
 
-module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook, open_existing_notebook};
+function dumpCSSText(element){
+    var s = {};
+    var o = getComputedStyle(element);
+    for(var i = 0; i < o.length; i++){
+        s[o[i]+""] = o.getPropertyValue(o[i])
+    }
+    return s;
+}
+
+module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook, open_existing_notebook, dumpCSSText};
