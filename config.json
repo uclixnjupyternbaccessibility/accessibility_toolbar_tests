@@ -1,34 +1,14 @@
 {
   "tests": [
     {
-      "file": "./tests/themes_test.js",
+      "file": "./tests/spell_checker_test.js",
       "timeout": 20000
-    },
-    {
-      "file": "./tests/font_spacing_test.js",
-      "timeout": 20000
-    },
-    {
-      "file": "./tests/predefined_fonts_test.js",
-      "timeout": 40000
-    },
-    {
-      "file": "./tests/color_manager_test.js",
-      "timeout": 40000
-    },
-    {
-      "file": "./tests/font_control_test.js",
-      "timeout": 100000
     }
   ],
   "browsers": [
 
     {
       "browserName": "chrome",
-      "browserVersion": "3.141.59"
-    },
-    {
-      "browserName": "firefox",
       "browserVersion": "3.141.59"
     }
   ]
