@@ -12,6 +12,8 @@ RUN pip install jupyter_contrib_nbextensions && \
     cd /tmp &&\
     git clone https://github.com/uclixnjupyternbaccessibility/jupyter_contrib_nbextensions.git &&\
     cd jupyter_contrib_nbextensions/src/jupyter_contrib_nbextensions/nbextensions &&\
+    git checkout dev &&\
+    git pull &&\
     jupyter nbextension install accessibility_toolbar --user &&\
     cd && \
     rm -rf /tmp/jupyter_contrib_nbextensions &&\
