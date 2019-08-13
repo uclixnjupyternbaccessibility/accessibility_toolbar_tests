@@ -148,4 +148,4 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             });   
         });
         after(async () => driver.quit());
-    })(driver);  
+})(driver);

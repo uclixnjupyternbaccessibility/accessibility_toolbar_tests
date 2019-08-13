@@ -1,6 +1,10 @@
 {
   "tests": [
     {
+      "file": "./tests/themes_test.js",
+      "timeout": 20000
+    },
+    {
       "file": "./tests/font_spacing_test.js",
       "timeout": 40000
     },
