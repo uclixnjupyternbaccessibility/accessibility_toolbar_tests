@@ -44,4 +44,10 @@ function dumpCSSText(element){
     return s;
 }
 
-module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook, open_existing_notebook, dumpCSSText};
+function checker(element){
+    var cell_list = document.querySelectorAll(".CodeMirror");
+    var checker_cell = cell_list[cell_list.length - 1];
+    checker_cell.CodeMirror.setValue(element);
+}
+
+module.exports = {switch_to_latest_tab ,login_to_jupyter, open_new_notebook, open_existing_notebook, dumpCSSText,checker};
