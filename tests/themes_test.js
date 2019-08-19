@@ -17,8 +17,9 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
                 const theme_button = driver.wait(until.elementLocated(By.id("theme")))
                 await theme_button.click();
+                await driver.sleep(2000);
 
-                var darkToggle = driver.wait(until.elementLocated(By.xpath("//*[@class='text-center switch']/div/div/label[2]")));
+                var darkToggle = driver.wait(until.elementLocated(By.xpath("//*[@id='theme_dropdown']/li[1]")));
                 await darkToggle.click();
                 await driver.sleep(1000);
 
