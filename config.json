@@ -6,7 +6,7 @@
     },
     {
       "file": "./tests/font_spacing_test.js",
-      "timeout": 40000
+      "timeout": 50000
     },
     {
       "file": "./tests/color_manager_test.js",

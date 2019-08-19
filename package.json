@@ -4,7 +4,8 @@
   "description": "Automated selenium tests for Jupyter Notebook accessibility toolbar extension",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha runner.js"
+    "test": "node_modules/.bin/mocha runner.js",
+    "coverage": "yc node_modules/.bin/mocha runner.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "dependencies": {
     "selenium-webdriver": "^4.0.0-alpha.4",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1"
   }
 }
