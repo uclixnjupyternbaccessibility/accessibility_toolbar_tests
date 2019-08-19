@@ -15,18 +15,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
     describe('Font control testing', () => {
         it('verify accessibility toolbar extension exists', async () => {
             await utils.login_to_jupyter(By, webdriver);
-            await driver.sleep(2000);
-            await driver.findElement(By.linkText("Nbextensions")).click();
             await driver.sleep(1000);
-            let text = await driver.findElement(webdriver.By.linkText('Accessibility Toolbar')).getText();
-            expect(text).to.equal("Accessibility Toolbar");
-            await driver.findElement(By.xpath("//*[@id=\"tabs\"]/li[4]/a")).click();
-            await driver.sleep(1000);
-            await driver.findElement(By.xpath("//*[@id=\"nbextensions-configurator-container\"]/div[3]/div[1]/div[5]/button[1]")).click();
-            await driver.sleep(1000);
-            await driver.findElement(By.linkText("Files")).click();
-            await driver.sleep(1000);
-
         });
 
         it('Open notebook', async () => {
@@ -35,11 +24,10 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         });
 
         it('Open font style dropdown', async () => {
-            await driver.sleep(3000);
             var fs = driver.wait(until.elementLocated(By.id("fs")));
             await fs.click();
             await driver.wait(until.elementLocated(By.id("switch"))).click();
-            await driver.sleep(2000);
+            await driver.sleep(3000);
         })
 
         it('Verify font name changing', async () => {
