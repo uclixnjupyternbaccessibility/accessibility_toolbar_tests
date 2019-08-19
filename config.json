@@ -21,12 +21,15 @@
       "timeout": 40000
     },
     {
+      "file":"./tests/spell_checker_test.js",
+      "timeout":40000
+    },
+    {
       "file": "./tests/font_control_test.js",
       "timeout": 100000
     }
   ],
   "browsers": [
-
     {
       "browserName": "chrome",
       "browserVersion": "3.141.59"
