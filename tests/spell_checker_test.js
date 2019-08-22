@@ -32,14 +32,12 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         })
 
-        //TODO: test for turn on spell checker
         it('Turn on spell checker',async()=>{
             await driver.wait(until.elementLocated(By.id("lispcswitch"))).click();
             await driver.sleep(1000);
             await notebook.click();
         });
 
-        //TODO: test for check inline spell checker
         it('Test inline spell checker',async()=>{
             await text.getCssValue("font-weight").then(function(value){
                 expect(value).to.equal('700');
@@ -49,7 +47,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         });
 
-        //TODO: test for the checker style change to underline 
         it('Test underline',async()=>{
             await spc.click();
             await driver.wait(until.elementLocated(By.id("listyle"))).click();
@@ -63,7 +60,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         });
 
-        //TODO: test for check in checker
         it('Test checker',async()=>{
             await spc.click();
             await driver.wait(until.elementLocated(By.xpath("//*[@id='spc_dropdown']/li[3]"))).click();
@@ -80,7 +76,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         });
 
-        //TODO: test for add new word
         it('Test add new word',async()=>{
             var new_word="iss";
             var new_word_cell=driver.wait(until.elementLocated(By.id("new_word")));
@@ -98,9 +93,11 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         });
 
-        //TODO: test for the checker keep open after refreshing
         it('Test keep open after refreshing',async()=>{
             await driver.navigate().refresh();
+            await driver.switchTo().alert().then(
+                async function (alert) {await alert.accept()})
+                .catch(function(error) {});
             var _text=driver.wait(until.elementLocated(By.xpath("//*[@id='notebook-container']/div[1]/div[2]/div[2]/div/div[6]/div[1]/div/div/div/div[5]/pre[1]/span/span")));
             var _notebook=driver.wait(until.elementLocated(By.id("notebook")));
             await _notebook.click();
@@ -112,8 +109,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(3000);
         });
 
-
-        //TODO: test for turn off spell checker
         it('Test turn off spell checker',async()=>{
             await driver.wait(until.elementLocated(By.id("spc"))).click();
             await driver.wait(until.elementLocated(By.id("lispcswitch"))).click();

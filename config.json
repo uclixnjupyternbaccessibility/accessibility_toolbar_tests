@@ -1,12 +1,16 @@
 {
   "tests": [
     {
+      "file": "./tests/enable_extension_test.js",
+      "timeout": 20000
+    },
+    {
       "file": "./tests/themes_test.js",
       "timeout": 20000
     },
     {
       "file": "./tests/font_spacing_test.js",
-      "timeout": 50000
+      "timeout": 20000
     },
     {
       "file": "./tests/voice_control_test.js",
@@ -17,11 +21,7 @@
       "timeout": 40000
     },
     {
-      "file": "./tests/themes_test.js",
-      "timeout": 40000
-    },
-    {
-      "file": "./tests/predefined_fonts_test.js",
+      "file": "./tests/predefined_styles_test.js",
       "timeout": 40000
     },
     {
@@ -31,6 +31,10 @@
     {
       "file": "./tests/font_control_test.js",
       "timeout": 100000
+    },
+    {
+      "file": "./tests/planner_test.js",
+      "timeout": 40000
     }
   ],
   "browsers": [

@@ -24,14 +24,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 
            let text = await driver.findElement(webdriver.By.linkText('Accessibility Toolbar')).getText();
            expect(text).to.equal("Accessibility Toolbar");
-
-           await driver.findElement(By.xpath("//*[@id=\"tabs\"]/li[4]/a")).click();
-           await driver.sleep(1000);
-           await driver.findElement(By.xpath("//*[@id=\"nbextensions-configurator-container\"]/div[3]/div[1]/div[5]/button[1]")).click();
-           await driver.sleep(1000);
-           await driver.findElement(By.linkText("Files")).click();
-           await driver.sleep(1000);
-
        });
 
        it('Create new notebook', async () => {

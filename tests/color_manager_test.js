@@ -13,7 +13,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
 (async function run_tests(driver) {
     describe('ColorManagerTests', () => {
 
-        //=====================
         it('verify accessibility toolbar extension exists', async () => {
             await utils.login_to_jupyter(By, webdriver);
             await driver.sleep(2000);
@@ -21,13 +20,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
             await driver.sleep(1000);
             let text = await driver.findElement(webdriver.By.linkText('Accessibility Toolbar')).getText();
             expect(text).to.equal("Accessibility Toolbar");
-            await driver.findElement(By.xpath("//*[@id=\"tabs\"]/li[4]/a")).click();
-            await driver.sleep(1000);
-            await driver.findElement(By.xpath("//*[@id=\"nbextensions-configurator-container\"]/div[3]/div[1]/div[5]/button[1]")).click();
-            await driver.sleep(1000);
-            await driver.findElement(By.linkText("Files")).click();
-            await driver.sleep(1000);
-
         });
 
         it('Create new notebook', async () => {
@@ -40,13 +32,13 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
              var fs=driver.wait(until.elementLocated(By.id("fs")));
              await fs.click();
 
-        })
+        });
 
         it('Turn the switch on',async()=>{
             var toogle= driver.wait(until.elementLocated(By.id("switch")));
             await toogle.click();
             await driver.sleep(2000);
-       })
+       });
 
 
 
@@ -78,7 +70,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 console.log('error')
             });
         });
-        //=================
 
         it('Change  cell background color test', async () => {
             await driver.wait(until.elementLocated(By.id("color-picker-background"))).click();
@@ -138,7 +129,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                 console.log('cell background color is not colse for that font name  is not clickable!!!')
             });
         });
-        //=================
 
         it('when font styles switch off, color values reset to default ', async () => {
             // turn switch off
@@ -169,8 +159,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
                     });
 
         });
-        //=================
-
     });
     after(async () => driver.quit());
 

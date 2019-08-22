@@ -98,7 +98,7 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         it('verify maximum line height', async () => {
             var increase_lh = driver.wait(until.elementLocated(By.id('increase_line_height')));
             curr_val = 0;
-            while(curr_val < 30) {
+            while(curr_val < 70) {
                 await increase_lh.click();
                 var update_cells = await driver.findElements(By.className('cell'));
                 await driver.executeScript(utils.dumpCSSText, update_cells[0]).then(function(new_res){
