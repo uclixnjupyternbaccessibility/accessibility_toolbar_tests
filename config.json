@@ -9,6 +9,10 @@
       "timeout": 50000
     },
     {
+      "file": "./tests/voice_control_test.js",
+      "timeout": 20000
+    },
+    {
       "file": "./tests/color_manager_test.js",
       "timeout": 40000
     },

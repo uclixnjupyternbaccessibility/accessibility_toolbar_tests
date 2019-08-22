@@ -55,7 +55,6 @@ let driver = global.driver ? global.driver : new webdriver.Builder().forBrowser(
         })
 
         it('verify reduce letter spacing button is disabled at start', async () => {
-            // var reduce_ls = driver.wait(until.elementLocated(By.id('reduce_letter_space')));
             expect(await driver.wait(until.elementLocated(By.id('reduce_letter_space'))).isEnabled()).to.equal(false);
         })
 
